@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header">
+    <div class="title">
+        <img src="img/baidu.gif" style="float: left">
+        <div class="title_style_line01">注册百度帐号</div>
+        <div class="login">我已注册,现在就
+            <button class="login_button">登陆</button>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+    <div id="app">
+        <div class="input_box">
+            <div class="textbg">用户名</div>
+            <span><input type="text" class="input_txt" placeholder="请设置用户名" @focus="display_tip_name"
+                         @blur="display_tip_name"></span><span
+                v-if="onfocus_name" class="display_tip">设置后不可更改<br>中英文均可，最长14个英文或7个汉字</span>
+        </div>
+        <div class="input_box">
+            <div class="textbg">手机号</div>
+            <span><input type="text" class="input_txt" placeholder="可用于登陆和找回密码" @focus="display_tip_phone"
+                         @blur="display_tip_phone"></span><span
+                v-if="onfocus_phone" class="display_tip">请输入大陆手机号</span>
+        </div>
+        <div class="input_box">
+            <div class="textbg">密码</div>
+            <span><input type="password" class="input_txt" placeholder="请设置登陆密码" @focus="display_tip_password"
+                         @blur="display_tip_password" v-model="password"></span><span
+                v-if="onfocus_password" class="display_tip display_tip_msgcode"><div
+                :class="{pwok:password.length >= 6 && password.length <= 14}">长度为6~14字符</div><div>支持数字，大小写字母和标点符号</div><div>不允许有空格</div></span>
+        </div>
+
+        <div class="input_box">
+            <div class="textbg">验证码</div>
+            <span><input type="text" class="input_code_txt input_txt" placeholder="请输入验证码"><button
+                    class="send_msg">获取短信验证码</button></span>
+        </div>
+        <div class="agreemen_box">
+        <span>
+            <input type="checkbox" class="agreemen_checkbox">
+            <span class="agreemen_txt">
+                阅读并接受<a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>
+            </span>
+        </span>
+        </div>
+
+        <div class="input_box">
+            <span><input type="submit" value="注册" class="submit"></span>
+        </div>
+    </div>
+
+    <div id="sms_reg">
+        <div class="sms_reg_title"><h4>手机快速注册</h4></div>
+        <div class="sms_reg_content">
+            <h5 >请使用中国大陆手机号，编辑短信：</h5>
+            <p> 6-14位字符（支持数字/字母/符号）</p>
+            <h5>作为登录密码，发送至：</h5>
+            <p> 1069 0691 036590</p>
+            <h5>即可注册成功，手机号即为登录帐号。</h5>
+            <img src="img/upreg.png" style="width:70%; margin:10px auto;display: block">
+            <h5>请使用手机百度进行扫码</h5>
+        </div>
+    </div>
+</div>
+<p class="footer">2018 ©Baidu</p>
+
+<script src="lib/vue.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
